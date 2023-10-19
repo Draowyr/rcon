@@ -34,7 +34,7 @@ class Header(NamedTuple):
     def __bytes__(self):
         return b"".join(
             (
-                PREFIX.encode("ascii"),
+                PREFIX.encode("utf-8"),  # Change to UTF-8 encoding
                 self.crc32.to_bytes(4, "little"),
                 INFIX.to_bytes(1, "little"),
                 self.type.to_bytes(1, "little"),
@@ -80,7 +80,7 @@ class LoginRequest(str):
     @property
     def payload(self) -> bytes:
         """Return the payload."""
-        return self.encode("ascii")
+        return self.encode("utf-8")
 
     @property
     def header(self) -> Header:
@@ -112,7 +112,7 @@ class CommandRequest(NamedTuple):
     @property
     def payload(self) -> bytes:
         """Return the payload."""
-        return b"".join((self.seq.to_bytes(1, "little"), self.command.encode("ascii")))
+        return b"".join((self.seq.to_bytes(1, "little"), self.command.encode("utf-8")))
 
     @property
     def header(self) -> Header:
