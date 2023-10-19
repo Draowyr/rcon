@@ -1,5 +1,8 @@
 [![Documentation Status](https://readthedocs.org/projects/rcon/badge/?version=latest)](https://rcon.readthedocs.io/en/latest/)
 
+## Why did you create a fork?
+I've created this fork for my own needs, as the original project doesn't support accents because of the ASCII encoding. I passed the BattlEye "proto.py" file to UTF-8 so that I could send accents using the `say -1 The server will restart in 5 minutes! 
+
 # rcon
 An RCON client implementation.
 * [Source RCON protocol](https://developer.valvesoftware.com/wiki/Source_RCON_Protocol)
